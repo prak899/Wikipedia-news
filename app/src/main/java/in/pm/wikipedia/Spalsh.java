@@ -1,3 +1,7 @@
+/*
+ * Created by Prakash on 2021.
+ */
+
 package in.pm.wikipedia;
 
 import androidx.appcompat.app.AppCompatActivity;

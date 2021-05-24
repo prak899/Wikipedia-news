@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Prakash on 2021.
+  -->
+
+<!--
+  ~ Created by Prakash on2021.
+  -->
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -84,17 +92,37 @@
         </com.google.android.material.tabs.TabLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:paddingBottom="50dp"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recycler" />
+            android:layout_height="match_parent"
+            android:id="@+id/nestedScrll">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:nestedScrollingEnabled="false"
+                />
+            <com.jb.dev.progress_indicator.dotGrowProgressBar
+                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/dotGrowProgressBar"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimaryDark"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
         <com.jb.dev.progress_indicator.fadeProgressBar
             android:id="@+id/dotBounce"
             android:layout_width="50dp"
@@ -111,6 +139,7 @@
             android:gravity="center"
             android:text="No data!" />
         <RadioGroup
+            android:visibility="gone"
             android:background="@color/bottom_top"
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
@@ -132,4 +161,5 @@
                 android:textSize="10sp"/>
         </RadioGroup>
     </RelativeLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

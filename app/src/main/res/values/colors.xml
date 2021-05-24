@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Prakash on 2021.
+  -->
+
+<!--
+  ~ Created by Prakash on2021.
+  -->
+
 <resources>
     <color name="colorPrimary">#53B368</color>
     <color name="colorPrimaryDark">#5BB66F</color>
@@ -19,4 +27,6 @@
     <color name="bottom_top">#F0F3F6</color>
 
     <color name="colorGreyBlue">#AFD1DF</color>
+
+    <color name="colorBlack">#263238</color>
 </resources>

@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Prakash on 2021.
+  -->
+
+<!--
+  ~ Created by Prakash on2021.
+  -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="in.pm.wikipedia">
 

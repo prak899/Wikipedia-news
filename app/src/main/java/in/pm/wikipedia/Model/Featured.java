@@ -1,3 +1,7 @@
+/*
+ * Created by Prakash on 2021.
+ */
+
 package in.pm.wikipedia.Model;
 
 public class Featured {
