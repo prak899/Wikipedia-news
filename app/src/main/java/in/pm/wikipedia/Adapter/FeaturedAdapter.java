@@ -1,16 +1,16 @@
 package in.pm.wikipedia.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
 import java.util.List;
-
 import in.pm.wikipedia.Model.Featured;
 import in.pm.wikipedia.R;
 
@@ -38,8 +38,9 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
         Featured pu = featured.get(position);
 
         holder.pId.setText(pu.getPageid());
-        holder.pNs.setText(pu.getNs());
         holder.pTitle.setText(pu.getTitle());
+
+        Glide.with(context).load(pu.getImage_url()).into(holder.imageView);
 
     }
 
@@ -52,6 +53,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
 
         public TextView pId, pNs;
         public TextView pTitle;
+        public ImageView imageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -59,6 +61,7 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
             pId = (TextView) itemView.findViewById(R.id.promoter_name);
             pNs = (TextView) itemView.findViewById(R.id.promoter_address);
             pTitle = (TextView) itemView.findViewById(R.id.promoter_address1);
+            imageView = (ImageView) itemView.findViewById(R.id.promoter_user);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -66,7 +69,6 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
 
                     Featured cpu = (Featured) view.getTag();
 
-                    Toast.makeText(view.getContext(), cpu.getNs()+" "+cpu.getPageid()+" is "+ cpu.getTitle(), Toast.LENGTH_SHORT).show();
 
                 }
             });

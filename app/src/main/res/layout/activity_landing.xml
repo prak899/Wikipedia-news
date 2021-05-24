@@ -96,7 +96,7 @@
             android:id="@+id/recycler" />
 
         <com.jb.dev.progress_indicator.fadeProgressBar
-            android:visibility="gone"
+
             android:id="@+id/dotBounce"
             android:layout_width="50dp"
             android:layout_height="40dp"
