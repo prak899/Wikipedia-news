@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +19,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.jb.dev.progress_indicator.fadeProgressBar;
 
 import org.json.JSONArray;
@@ -49,11 +53,62 @@ public class Landing extends AppCompatActivity {
     com.jb.dev.progress_indicator.fadeProgressBar dotBounceProgressBar;
     TextView EmptyView, HeaderName;
 
+    TabItem Explore, Digital, SEO;
+    TabLayout tabLayout;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
+        UIinit();
 
+        sendFeaturedRequest();
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch(tab.getPosition()) {
+                    case 0: sendFeaturedRequest();
+                        break;
+                    case 1: sendRandomRequest();
+                        break;
+                    case 2: sendCatagoryRequest();
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    private void sendCatagoryRequest() {
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.scale);
+        a.reset();
+        HeaderName.clearAnimation();
+        HeaderName.startAnimation(a);
+        HeaderName.setText("Catagory List");
+        Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
+    }
+
+    private void sendRandomRequest() {
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.scale);
+        a.reset();
+        HeaderName.clearAnimation();
+        HeaderName.startAnimation(a);
+        HeaderName.setText("Random Articles");
+        Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
+    }
+
+    private void UIinit() {
         dotBounceProgressBar = (fadeProgressBar) findViewById(R.id.dotBounce);
         EmptyView = (TextView) findViewById(R.id.empty_view);
         rq = Volley.newRequestQueue(this);
@@ -67,12 +122,16 @@ public class Landing extends AppCompatActivity {
 
         featuredList = new ArrayList<>();
 
-        sendRequest();
-
-
+        HeaderName= findViewById(R.id.header_name);
+        tabLayout = findViewById(R.id.tab_lay);
     }
-    public void sendRequest() {
 
+    public void sendFeaturedRequest() {
+        Animation a = AnimationUtils.loadAnimation(this, R.anim.scale);
+        a.reset();
+        HeaderName.clearAnimation();
+        HeaderName.startAnimation(a);
+        HeaderName.setText("Featured Articles");
 
         String url = "https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=timestamp%7Cuser%7Curl&generator=categorymembers&gcmtype=file&gcmtitle=Category:Featured_pictures_on_Wikimedia_Commons&format=json&utf8";
 
@@ -81,33 +140,32 @@ public class Landing extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-
+                        featuredList.clear();
                         Log.d("TAG", "onResponse: " + response);
 
                         for (int i = 0; i < response.length(); i++) {
                             try {
-                                //featuredList.clear();
+
                                 JSONObject query = response.getJSONObject("query");
                                 JSONObject query1 = query.getJSONObject("pages");
 
                                 Iterator iterator  = query1.keys();
                                 String key = null;
+
                                 while(iterator.hasNext()){
 
                                     key = (String)iterator.next();
 
                                     JSONArray json = (JSONArray) ((JSONObject)query1.get(key)).get("imageinfo");
-                                    //JSONArray jsonArray = json.optJSONArray("imageinfo");
-                                    Log.d("finl", "onResponse: "+json);
                                     Featured featured = new Featured();
+
                                     for (int j=0; j<json.length();j++){
+
                                         JSONObject productObjects = json.getJSONObject(i);
 
-                                        Log.d("finallyVal", "onResponse: "+productObjects.getString("url"));
                                         featured.setImage_url(productObjects.getString("url"));
                                         featured.setPageid(productObjects.getString("user"));
                                         featured.setTitle(productObjects.getString("timestamp"));
-
 
                                     }
                                     featuredList.add(featured);

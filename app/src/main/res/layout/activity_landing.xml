@@ -91,12 +91,11 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:paddingBottom="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recycler" />
-
         <com.jb.dev.progress_indicator.fadeProgressBar
-
             android:id="@+id/dotBounce"
             android:layout_width="50dp"
             android:layout_height="40dp"
@@ -111,6 +110,26 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="No data!" />
-
+        <RadioGroup
+            android:background="@color/bottom_top"
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/imageButton5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/mine_button_selector"
+                android:gravity="center_horizontal"
+                android:text="Next"
+                android:textColor="@drawable/mine_button_selector"
+                android:textSize="10sp"/>
+        </RadioGroup>
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
