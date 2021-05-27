@@ -390,7 +390,7 @@ public class Landing extends AppCompatActivity {
 
         if(value){
 
-            HeaderName.setText("Explore");
+            HeaderName.setText("Wikipedia");
             Handler handler = new Handler();
             Runnable delayrunnable = new Runnable() {
                 @Override

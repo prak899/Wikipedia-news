@@ -17,7 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Dashboard.Landing"/>
-        <activity android:name=".MainActivity" />
         <activity android:name=".Spalsh">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
