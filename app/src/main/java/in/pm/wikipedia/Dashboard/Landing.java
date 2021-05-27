@@ -174,7 +174,7 @@ public class Landing extends AppCompatActivity {
     }
 
     public void sendFeaturedRequest(String defVal) {
-
+        dotBounceProgressBar.setVisibility(View.VISIBLE);
         String url="https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=timestamp%7Cuser%7Curl&generator=categorymembers&gcmtype=file&gcmtitle=Category:Featured_pictures_on_Wikimedia_Commons&format=json&utf8&gcmcontinue="+
                 defVal;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -248,7 +248,7 @@ public class Landing extends AppCompatActivity {
     }
     private void sendRandomRequest(String randomContinue) {
         //recyclerView.setVisibility(View.GONE);
-        //dotBounceProgressBar.setVisibility(View.VISIBLE);
+        dotBounceProgressBar.setVisibility(View.VISIBLE);
 
 
         String url="https://en.wikipedia.org/w/api.php?format=json&action=query&generator=random&grnnamespace=0&prop=revisions%7Cimages&rvprop=content&grnlimit=10&gcmcontinue="+
@@ -333,32 +333,28 @@ public class Landing extends AppCompatActivity {
                 (Request.Method.GET, url, null, response -> {
                     //featuredList.clear();
                     Log.d("TAG", "onResponse: " + response);
-                    catagoryList.clear();
-
-
+                    Catagory catagory = new Catagory();
                     try {
-                        //catagoryList.clear();
-                        JSONObject nextpage = response.getJSONObject("continue");
+                        catagoryList.clear();
+                        //JSONObject nextpage = response.getJSONObject("continue");
 
                         //randomContinueChanged= nextpage.getString("grncontinue");
-                        Log.d("XvalX", "onResponse: "+nextpage.getString("accontinue"));
+                        //Log.d("XvalX", "onResponse: "+nextpage.getString("accontinue"));
 
                         JSONObject query = response.getJSONObject("query");
                         JSONArray query1 = query.getJSONArray("allcategories");
-                        Catagory catagory = new Catagory();
+
                         for (int j=0; j<query1.length();j++){
 
                             JSONObject productObjects = query1.getJSONObject(j);
 
                             Log.d("XcvcX", "onResponse: "+productObjects.getString("category"));
 
-
-
                             catagory.setTitle(productObjects.getString("category"));
 
                         }
-
                         catagoryList.add(catagory);
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Log.d("TAG", "onResponse: " + e);
@@ -367,7 +363,7 @@ public class Landing extends AppCompatActivity {
 
 
                     mAdapter = new CatagoryAdapter(Landing.this, catagoryList);
-                    mAdapter.notifyDataSetChanged();
+                    //mAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(mAdapter);
 
                     if (catagoryList.isEmpty()) {
