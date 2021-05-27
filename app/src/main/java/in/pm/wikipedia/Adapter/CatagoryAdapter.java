@@ -2,9 +2,6 @@
  * Created by Prakash on 2021.
  */
 
-/*
- * Created by Prakash on2021.
- */
 package in.pm.wikipedia.Adapter;
 
 import android.content.Context;

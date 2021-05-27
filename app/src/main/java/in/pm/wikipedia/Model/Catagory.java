@@ -7,6 +7,8 @@ package in.pm.wikipedia.Model;
 public class Catagory {
     String title;
 
+
+
     public String getTitle() {
         return title;
     }

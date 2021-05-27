@@ -5,6 +5,7 @@
 package in.pm.wikipedia.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -14,9 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
-
 import java.util.List;
 import in.pm.wikipedia.Model.Featured;
 import in.pm.wikipedia.R;
@@ -54,7 +52,6 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
                 .thumbnail(0.05f)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(holder.imageView);*/
-
     }
 
     @Override
@@ -81,6 +78,8 @@ public class FeaturedAdapter extends RecyclerView.Adapter<FeaturedAdapter.ViewHo
                 public void onClick(View view) {
 
                     Featured cpu = (Featured) view.getTag();
+
+
                 }
             });
 
