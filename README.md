@@ -7,7 +7,7 @@ All information on the way.
 Use the version control to access it.
 
 ```bash
-https://github.com/prak899/Samaj.git
+https://github.com/prak899/Wikipedia-news.git
 ```
 ## Screen shot
 <img src="https://user-images.githubusercontent.com/58839967/119495406-03136b80-bd80-11eb-939c-d45294846971.png" width="30%"></img> 
