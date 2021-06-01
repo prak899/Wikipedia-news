@@ -8,11 +8,6 @@ public class Featured {
     String pageid, title, image_url;
 
 
-    public Featured(String pageid, String title, String image_url) {
-        this.pageid = pageid;
-        this.title = title;
-        this.image_url = image_url;
-    }
 
     public Featured() {
     }

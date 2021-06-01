@@ -103,13 +103,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recycler"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:nestedScrollingEnabled="false"
-                    />
+                    android:nestedScrollingEnabled="false" />
+
                 <com.jb.dev.progress_indicator.dotGrowProgressBar
                     android:visibility="gone"
                     android:layout_gravity="center_horizontal"
