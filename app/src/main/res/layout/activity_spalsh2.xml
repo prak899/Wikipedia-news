@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
+    android:background="#fff"
+    style="@style/MatchParent"
+    tools:context=".Spalsh2">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+        android:fontFamily="@font/proximanovaregular"
+        android:textColor="#2B2828"
+        android:id="@+id/tv_splash_app_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp"
+        android:layout_above="@+id/tv_splash_app_version"
+        tools:text="Women Saftey"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:fontFamily="@font/proximanovaregular"
+        android:textColor="#2B2828"
+        android:id="@+id/tv_splash_app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        tools:text="1.0.0"/>
+</RelativeLayout>

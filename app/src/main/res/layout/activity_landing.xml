@@ -40,7 +40,7 @@
                         android:id="@+id/header_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/sf_pro_display_light"
+                        android:fontFamily="@font/proximanovaregular"
                         android:text="Wikipedia"
                         android:textColor="#000000"
                         android:textSize="24sp"
@@ -111,17 +111,10 @@
                     android:layout_weight="1"
                     android:nestedScrollingEnabled="false" />
 
-                <com.jb.dev.progress_indicator.dotGrowProgressBar
-                    android:visibility="gone"
-                    android:layout_gravity="center_horizontal"
-                    android:id="@+id/dotGrowProgressBar"
-                    android:layout_width="50dp"
-                    android:layout_height="40dp"
-                    android:background="@color/colorPrimaryDark"
-                    tools:ignore="MissingConstraints" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
         <com.jb.dev.progress_indicator.fadeProgressBar
+            android:visibility="gone"
             android:id="@+id/dotBounce"
             android:layout_width="50dp"
             android:layout_height="40dp"
@@ -136,5 +129,31 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="No data!" /> </RelativeLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:backgroundTint="#fff"
+        tools:ignore="BottomAppBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jb.dev.progress_indicator.dotGrowProgressBar
+                android:visibility="visible"
+                android:layout_centerInParent="true"
+                android:id="@+id/dotGrowProgressBar"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@color/colorPrimaryDark"
+                tools:ignore="MissingConstraints" />
+        </RelativeLayout>
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

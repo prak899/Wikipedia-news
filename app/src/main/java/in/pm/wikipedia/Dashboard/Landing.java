@@ -26,6 +26,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.tabs.TabLayout;
 import com.jb.dev.progress_indicator.dotGrowProgressBar;
 import com.jb.dev.progress_indicator.fadeProgressBar;
@@ -73,12 +74,12 @@ public class Landing extends AppCompatActivity {
     String randomContinue="0.733352296815|0.733352296815|0|0";
     String featuredContinueChanged, randomContinueChanged;
 
-    private dotGrowProgressBar loadingPB;
+    //private dotGrowProgressBar loadingPB;
     private NestedScrollView nestedSV;
 
     int page = 0;
 
-
+    private BottomAppBar bottomAppBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,11 +126,12 @@ public class Landing extends AppCompatActivity {
             if (scrollY == v.getChildAt(0).getMeasuredHeight() - v.getMeasuredHeight()) {
 
                 page++;
-                loadingPB.setVisibility(View.VISIBLE);
+                //loadingPB.setVisibility(View.VISIBLE);
+                bottomAppBar.setVisibility(View.VISIBLE);
 
 
                 switch(tabLayout.getSelectedTabPosition()) {
-                    case 0:
+                    case 0:dotBounceProgressBar.setVisibility(View.GONE);
                         sendFeaturedRequest(featuredContinueChanged);
                         break;
                     case 1:
@@ -165,9 +167,10 @@ public class Landing extends AppCompatActivity {
         HeaderName= findViewById(R.id.header_name);
         tabLayout = findViewById(R.id.tab_lay);
 
-        loadingPB = findViewById(R.id.dotGrowProgressBar);
+        //loadingPB = findViewById(R.id.dotGrowProgressBar);
         nestedSV = findViewById(R.id.nested);
 
+        bottomAppBar= findViewById(R.id.bar);
         mNetworkReceiver = new NetworkChangeReceiver();
         registerNetworkBroadcastForNougat();
 
@@ -208,7 +211,8 @@ public class Landing extends AppCompatActivity {
 
                                         JSONObject productObjects = json.getJSONObject(i);
 
-                                        featured.setImage_url(productObjects.getString("url"));
+                                        //Note* when you need to fetch image url (make name as url) for testing it's disabled
+                                        featured.setImage_url(productObjects.getString("user"));
                                         featured.setPageid(productObjects.getString("user"));
                                         featured.setTitle(productObjects.getString("timestamp"));
 
@@ -236,7 +240,8 @@ public class Landing extends AppCompatActivity {
                             EmptyView.setVisibility(View.GONE);
                         }
                         dotBounceProgressBar.setVisibility(View.GONE);
-                        loadingPB.setVisibility(View.GONE);
+                        //loadingPB.setVisibility(View.GONE);
+                        bottomAppBar.setVisibility(View.GONE);
                     }
                 }, error -> {
                     // TODO: Handle error
@@ -312,7 +317,8 @@ public class Landing extends AppCompatActivity {
                             EmptyView.setVisibility(View.GONE);
                         }
                         dotBounceProgressBar.setVisibility(View.GONE);
-                        loadingPB.setVisibility(View.GONE);
+                        //loadingPB.setVisibility(View.GONE);
+                        bottomAppBar.setVisibility(View.GONE);
                     }
                 }, error -> {
                     // TODO: Handle error
@@ -375,7 +381,8 @@ public class Landing extends AppCompatActivity {
                         EmptyView.setVisibility(View.GONE);
                     }
                     dotBounceProgressBar.setVisibility(View.GONE);
-                    loadingPB.setVisibility(View.GONE);
+                    //loadingPB.setVisibility(View.GONE);
+                    bottomAppBar.setVisibility(View.GONE);
                 }, error -> {
                     // TODO: Handle error
                     Log.d("Error", "onErrorResponse: "+error);

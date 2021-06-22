@@ -2,9 +2,7 @@
   ~ Created by Prakash on 2021.
   -->
 
-<!--
-  ~ Created by Prakash on2021.
-  -->
+
 
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
@@ -14,6 +12,22 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="Theme.DemoApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorAccent</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <item name="colorSecondaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnSecondary">@color/colorAccent</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
     </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -24,7 +38,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">28sp</item>
-        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textColor">@color/primary_txt</item>
     </style>
 
@@ -33,7 +47,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/solid_bg</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textSize">18sp</item>
     </style>
 
@@ -53,7 +67,7 @@
         <item name="android:backgroundTint">@color/edit_text_bg</item>
         <item name="android:textColor">@color/edit_text_txt</item>
         <item name="android:textColorHint">@color/edit_text_hint</item>
-        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textSize">22sp</item>
         <item name="android:paddingBottom">16dp</item>
     </style>
@@ -63,5 +77,9 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.Toolbar" parent="ThemeOverlay.AppCompat.ActionBar" />
+    <style name="MatchParent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 
 </resources>

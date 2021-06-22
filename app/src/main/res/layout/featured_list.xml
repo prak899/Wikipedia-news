@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/calibri"
+                    android:fontFamily="@font/proximanovaregular"
                     android:text="BMW M5 G-Power"
                     android:textColor="#000000"
                     android:textSize="14sp"
@@ -56,7 +56,7 @@
                     android:id="@+id/promoter_address1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/calibri"
+                    android:fontFamily="@font/proximanovaregular"
                     android:text="Tel-Aviv, Israel"
                     android:textColor="#a4a7b5"
                     android:textSize="12sp" />
@@ -66,7 +66,7 @@
                     android:id="@+id/promoter_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/calibri"
+                    android:fontFamily="@font/proximanovaregular"
                     android:text="The progress bar will have an indicator that represents a goal. We will ... and remove the style and android:indeterminate attributes from our custom view's definition in activity_main.xml . ... public enum IndicatorType { Line, Circle, Square }."
                     android:textColor="#a4a7b5"
                     android:textSize="12sp" />

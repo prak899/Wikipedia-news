@@ -21,7 +21,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textSize">28sp</item>
-        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textColor">@color/primary_txt</item>
     </style>
 
@@ -30,7 +30,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/solid_bg</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textSize">18sp</item>
     </style>
 
@@ -50,7 +50,7 @@
         <item name="android:backgroundTint">@color/edit_text_bg</item>
         <item name="android:textColor">@color/edit_text_txt</item>
         <item name="android:textColorHint">@color/edit_text_hint</item>
-        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:fontFamily">@font/proximanovaregular</item>
         <item name="android:textSize">22sp</item>
         <item name="android:paddingBottom">16dp</item>
     </style>
